@@ -1,0 +1,7 @@
+const TOGGLE_MENU = 'TOGGLE_MENU';
+const CHANGE_MENU = 'CHANGE_MENU';
+
+export {
+  CHANGE_MENU,
+  TOGGLE_MENU,
+};
