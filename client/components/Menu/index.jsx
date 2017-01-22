@@ -3,6 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import noop from 'lodash/noop';
 
 /**
  * Internal dependencies
@@ -14,10 +15,6 @@ import Button from '../Button';
  * <Menu />
  */
 class Menu extends Component {
-  componentDidMount() {
-    console.log(this.props.items);
-  }
-
   _renderMenuGroup(group, i) {
     return (
       <dl className="menu__group" key={`menu-group-key-${i}`}>
@@ -61,12 +58,14 @@ class Menu extends Component {
 }
 
 Menu.defaultProps = {
+  changeMenu: noop,
   className: '',
   items: [],
   status: false,
 };
 
 Menu.propTypes = {
+  changeMenu: PropTypes.func,
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.arrayOf(

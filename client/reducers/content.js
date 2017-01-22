@@ -1,37 +1,33 @@
 /**
  * Internal dependencies
  */
-import { CHANGE_MENU, TOGGLE_MENU } from '../constants/ActionTypes';
+import { ADD_ELEMENT, DELETE_ELEMENT } from '../constants/ActionTypes';
 
 /**
  * Initial state
  */
 const initialState = {
-  recent: false,
-  saved: false,
-  status: false,
-  view: 0,
+  elements: [],
 };
 
 /**
- * pageMenu reducer
+ * content reducer
  */
-function pageMenu(state = initialState, action) {
+function content(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_MENU:
+    case ADD_ELEMENT:
       return {
         ...state,
         view: action.view,
       };
-    case TOGGLE_MENU:
+    case DELETE_ELEMENT:
       return {
         ...state,
         status: !state.status,
-        view: 0,
       };
     default:
       return state;
   }
 }
 
-export default pageMenu;
+export default content;
