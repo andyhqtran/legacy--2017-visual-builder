@@ -9,13 +9,16 @@ import { Provider } from 'react-redux';
 /**
  * Internal dependencies
  */
-import Application from './containers/Application';
-import reducer from './reducers';
+import Application from '../lib/containers/Application';
+import reducer from '../lib/reducers';
 
 /**
  * Create store
  */
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+  reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
 /**
  * Render application
