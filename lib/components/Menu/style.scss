@@ -1,15 +1,19 @@
+@import '../../helpers/colors';
+@import '../../helpers/fonts';
+
 .menu {
   display: none;
-  background: #FFFFFF;
+  background: $white;
   width: 200px;
-  box-shadow: inset 0 0 0 1px rgba(#000000, 0.1), 0 2px 8px rgba(#000000, 0.2);
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba($black, 0.1), 0 2px 8px rgba($black, 0.2);
 
   &--active {
     display: block;
   }
 
   &__group {
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid $border;
     margin: 0;
     padding: 10px 0;
 
@@ -29,12 +33,12 @@
     height: 30px;
     padding: 0 20px;
     box-sizing: border-box;
-    font-weight: 600;
+    font-weight: $font-semibold;
     line-height: 30px;
   }
 
   &__title {
-    color: #B5B7BD;
+    color: $text-secondary;
     font-size: 0.625rem;
     text-transform: uppercase;
   }
@@ -49,13 +53,13 @@
     margin: 0 1px;
     padding: 0 20px;
     box-sizing: border-box;
-    color: #404040;
+    color: $text-primary;
     font-size: 0.75rem;
     text-decoration: none;
     cursor: pointer;
 
     &:hover {
-      background: #F7F7F7;
+      background: $light-hover;
     }
   }
 }
