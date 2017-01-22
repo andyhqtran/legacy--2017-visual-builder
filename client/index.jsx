@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 /**
  * Internal dependencies
  */
+import './style.scss';
 import Application from '../lib/containers/Application';
 import reducer from '../lib/reducers';
 

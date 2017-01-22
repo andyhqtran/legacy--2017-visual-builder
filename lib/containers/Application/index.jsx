@@ -11,18 +11,20 @@ import { connect } from 'react-redux';
 import * as MenuActions from '../../actions';
 import Content from '../../components/Content';
 import ElementMenu from '../../components/ElementMenu';
+import Header from '../../components/Header';
 
 /**
  * <Application />
  */
 const Application = props => (
   <div className="app">
+    <Header />
     <Content elements={props.elements} />
     <ElementMenu
       addElement={props.actions.addElement}
-      changeMenu={props.actions.changeMenu}
+      changeMenu={props.actions.changeElementMenu}
       status={props.status}
-      toggleMenu={props.actions.toggleMenu}
+      toggleMenu={props.actions.toggleElementMenu}
       view={props.view}
     />
   </div>
@@ -37,8 +39,8 @@ Application.propTypes = {
 
 const mapStateToProps = state => ({
   elements: state.content.elements,
-  status: state.pageMenu.status,
-  view: state.pageMenu.view,
+  status: state.elementMenu.status,
+  view: state.elementMenu.view,
 });
 
 const mapDispatchToProps = dispatch => ({
