@@ -51,7 +51,11 @@ class Menu extends Component {
 
     return (
       <nav className={classes}>
-        {this.props.items[this.props.view].map(this._renderMenuGroup, this)}
+        {this.props.children}
+        {
+          this.props.items ?
+            this.props.items[this.props.view || 0].map(this._renderMenuGroup, this) : false
+        }
       </nav>
     );
   }
@@ -59,13 +63,18 @@ class Menu extends Component {
 
 Menu.defaultProps = {
   changeMenu: noop,
-  className: '',
-  items: [],
+  children: undefined,
+  className: undefined,
+  items: undefined,
   status: false,
 };
 
 Menu.propTypes = {
   changeMenu: PropTypes.func,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.arrayOf(

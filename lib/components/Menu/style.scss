@@ -1,7 +1,9 @@
 @import '../../helpers/colors';
 @import '../../helpers/fonts';
+@import '../../helpers/z-index';
 
 .menu {
+  z-index: map-get($z-index-map, menu);
   display: none;
   background: $white;
   width: 200px;

@@ -18,12 +18,29 @@ import Header from '../../components/Header';
  */
 const Application = props => (
   <div className="app">
-    <Header />
+    <Header
+      pagesMenu={{
+        actions: {
+          toggleMenu: props.actions.togglePagesMenu,
+        },
+        state: {
+          status: props.pagesMenuStatus,
+        },
+      }}
+      responsiveMenu={{
+        actions: {
+          toggleMenu: props.actions.toggleResponsiveMenu,
+        },
+        state: {
+          status: props.responsiveMenuStatus,
+        },
+      }}
+    />
     <Content elements={props.elements} />
     <ElementMenu
       addElement={props.actions.addElement}
       changeMenu={props.actions.changeElementMenu}
-      status={props.status}
+      status={props.elementMenuStatus}
       toggleMenu={props.actions.toggleElementMenu}
       view={props.view}
     />
@@ -33,13 +50,17 @@ const Application = props => (
 Application.propTypes = {
   actions: PropTypes.object.isRequired,
   elements: PropTypes.array.isRequired,
-  status: PropTypes.bool.isRequired,
+  elementMenuStatus: PropTypes.bool.isRequired,
+  pagesMenuStatus: PropTypes.bool.isRequired,
+  responsiveMenuStatus: PropTypes.bool.isRequired,
   view: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   elements: state.content.elements,
-  status: state.elementMenu.status,
+  elementMenuStatus: state.elementMenu.status,
+  pagesMenuStatus: state.pagesMenu.status,
+  responsiveMenuStatus: state.responsiveMenu.status,
   view: state.elementMenu.view,
 });
 
