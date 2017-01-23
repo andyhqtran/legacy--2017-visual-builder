@@ -27,6 +27,10 @@ class Header extends Component {
             status={this.props.pagesMenu.state.status}
           />
           <ResponsiveMenu
+            changeContentSize={this.props.responsiveMenu.actions.changeContentSize}
+            contentSize={this.props.responsiveMenu.state.contentSize}
+            decreaseContentSize={this.props.responsiveMenu.actions.decreaseContentSize}
+            increaseContentSize={this.props.responsiveMenu.actions.increaseContentSize}
             toggleMenu={this.props.responsiveMenu.actions.toggleMenu}
             status={this.props.responsiveMenu.state.status}
           />

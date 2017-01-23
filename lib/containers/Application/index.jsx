@@ -29,9 +29,13 @@ const Application = props => (
       }}
       responsiveMenu={{
         actions: {
+          changeContentSize: props.actions.changeContentSize,
+          decreaseContentSize: props.actions.decreaseContentSize,
+          increaseContentSize: props.actions.increaseContentSize,
           toggleMenu: props.actions.toggleResponsiveMenu,
         },
         state: {
+          contentSize: props.contentSize,
           status: props.responsiveMenuStatus,
         },
       }}
@@ -49,6 +53,7 @@ const Application = props => (
 
 Application.propTypes = {
   actions: PropTypes.object.isRequired,
+  contentSize: PropTypes.number,
   elements: PropTypes.array.isRequired,
   elementMenuStatus: PropTypes.bool.isRequired,
   pagesMenuStatus: PropTypes.bool.isRequired,
@@ -57,6 +62,7 @@ Application.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  contentSize: state.content.size,
   elements: state.content.elements,
   elementMenuStatus: state.elementMenu.status,
   pagesMenuStatus: state.pagesMenu.status,

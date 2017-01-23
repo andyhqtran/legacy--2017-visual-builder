@@ -2,17 +2,11 @@
   display: inline-flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  box-sizing: border-box;
 
-  .button {
-    margin: 0 5px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+  &--block {
+    display: flex;
+    width: 100%;
   }
 
   &--vertical {
@@ -28,6 +22,18 @@
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+
+  .button {
+    margin: 0 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 }

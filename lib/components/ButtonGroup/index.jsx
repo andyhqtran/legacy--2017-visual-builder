@@ -15,21 +15,26 @@ import './style.scss';
 const ButtonGroup = (props) => {
   const classes = classNames({
     'button-group': true,
+    'button-group--block': props.block,
     'button-group--vertical': props.vertical,
   }, props.className);
 
-  return <div className={classes}>{props.children}</div>;
+  return <div className={classes} style={props.style}>{props.children}</div>;
 };
 
 ButtonGroup.defaultProps = {
-  className: '',
-  children: false,
-  vertical: false,
+  block: undefined,
+  className: undefined,
+  children: undefined,
+  style: undefined,
+  vertical: undefined,
 };
 
 ButtonGroup.propTypes = {
+  block: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
+  style: PropTypes.object,
   vertical: PropTypes.bool,
 };
 

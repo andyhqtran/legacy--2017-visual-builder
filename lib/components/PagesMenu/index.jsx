@@ -55,7 +55,10 @@ class PagesMenu extends Component {
         <Menu
           items={this._getMenuItems()}
           status={this.props.status}
-        />
+          childrenLocation="bottom"
+        >
+          <Button block>Add Page</Button>
+        </Menu>
       </div>
     );
   }

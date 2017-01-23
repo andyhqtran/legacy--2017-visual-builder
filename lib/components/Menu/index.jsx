@@ -18,7 +18,7 @@ class Menu extends Component {
   _renderMenuGroup(group, i) {
     return (
       <dl className="menu__group" key={`menu-group-key-${i}`}>
-        <dt className="menu__title">{group.title}</dt>
+        {group.title ? <dt className="menu__title">{group.title}</dt> : false}
         <dd className="menu__group-content">
           {group.items.map(this._renderMenuGroupItem, this)}
         </dd>
@@ -51,10 +51,14 @@ class Menu extends Component {
 
     return (
       <nav className={classes}>
-        {this.props.children}
+        {this.props.childrenLocation === 'top' ? this.props.children : false}
         {
           this.props.items ?
             this.props.items[this.props.view || 0].map(this._renderMenuGroup, this) : false
+        }
+        {
+          this.props.childrenLocation === 'bottom' ? this.props.children : false ||
+          !this.props.childrenLocation ? this.props.children : false
         }
       </nav>
     );
@@ -75,11 +79,15 @@ Menu.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+  childrenLocation: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string,
+  ]),
   className: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string.isRequired,
+        title: PropTypes.string,
         items: PropTypes.arrayOf(
           PropTypes.shape({
             action: PropTypes.func.isRequired,

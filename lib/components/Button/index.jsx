@@ -16,6 +16,7 @@ import './style.scss';
 const Button = (props) => {
   const classes = classNames({
     button: true,
+    'button--block': props.block,
     'button--default': props.default,
     'button--elevate': props.elevate,
     'button--primary': props.primary,
@@ -34,13 +35,14 @@ const Button = (props) => {
 };
 
 Button.defaultProps = {
-  className: '',
-  children: false,
-  default: false,
-  elevate: false,
+  className: undefined,
+  children: undefined,
+  block: undefined,
+  default: undefined,
+  elevate: undefined,
   onClick: noop,
-  primary: false,
-  style: {},
+  primary: undefined,
+  style: undefined,
   type: 'button',
 };
 
