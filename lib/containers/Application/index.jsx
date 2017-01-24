@@ -21,9 +21,11 @@ const Application = props => (
     <Header
       pagesMenu={{
         actions: {
+          addPage: props.actions.addPage,
           toggleMenu: props.actions.togglePagesMenu,
         },
         state: {
+          pages: props.pages,
           status: props.pagesMenuStatus,
         },
       }}
@@ -57,6 +59,7 @@ Application.propTypes = {
   elements: PropTypes.array.isRequired,
   elementsMenuStatus: PropTypes.bool.isRequired,
   elementsMenuView: PropTypes.number.isRequired,
+  pages: PropTypes.array.isRequired,
   pagesMenuStatus: PropTypes.bool.isRequired,
   responsiveMenuStatus: PropTypes.bool.isRequired,
 };
@@ -66,6 +69,7 @@ const mapStateToProps = state => ({
   elements: state.content.elements,
   elementsMenuStatus: state.menus.elementsMenu,
   elementsMenuView: state.menus.elementsMenuView,
+  pages: state.pages.pages,
   pagesMenuStatus: state.menus.pagesMenu,
   responsiveMenuStatus: state.menus.responsiveMenu,
 });

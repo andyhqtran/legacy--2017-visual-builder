@@ -20,20 +20,7 @@ class PagesMenu extends Component {
       [
         {
           title: 'Pages',
-          items: [
-            {
-              action: () => console.log('Page 1'),
-              name: 'Page 1',
-            },
-            {
-              action: () => console.log('Page 2'),
-              name: 'Page 2',
-            },
-            {
-              action: () => console.log('Page 3'),
-              name: 'Page 3',
-            },
-          ],
+          items: this.props.pages,
         },
       ],
     ];
@@ -57,7 +44,7 @@ class PagesMenu extends Component {
           status={this.props.status}
           childrenLocation="bottom"
         >
-          <Button block>Add Page</Button>
+          <Button block onClick={() => this.props.addPage()}>Add Page</Button>
         </Menu>
       </div>
     );

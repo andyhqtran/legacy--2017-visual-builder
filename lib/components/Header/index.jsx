@@ -23,6 +23,8 @@ class Header extends Component {
       <header className={classes}>
         <div className="header__group">
           <PagesMenu
+            addPage={this.props.pagesMenu.actions.addPage}
+            pages={this.props.pagesMenu.state.pages}
             toggleMenu={this.props.pagesMenu.actions.toggleMenu}
             status={this.props.pagesMenu.state.status}
           />
