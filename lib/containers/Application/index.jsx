@@ -42,11 +42,11 @@ const Application = props => (
     />
     <Content elements={props.elements} />
     <ElementMenu
-      addElement={props.actions.addElement}
-      changeMenu={props.actions.changeElementMenu}
-      status={props.elementMenuStatus}
-      toggleMenu={props.actions.toggleElementMenu}
-      view={props.view}
+      addElement={props.actions.addElements}
+      changeMenu={props.actions.changeElementsMenu}
+      status={props.elementsMenuStatus}
+      toggleMenu={props.actions.toggleElementsMenu}
+      view={props.elementsMenuView}
     />
   </div>
 );
@@ -55,19 +55,19 @@ Application.propTypes = {
   actions: PropTypes.object.isRequired,
   contentSize: PropTypes.number,
   elements: PropTypes.array.isRequired,
-  elementMenuStatus: PropTypes.bool.isRequired,
+  elementsMenuStatus: PropTypes.bool.isRequired,
+  elementsMenuView: PropTypes.number.isRequired,
   pagesMenuStatus: PropTypes.bool.isRequired,
   responsiveMenuStatus: PropTypes.bool.isRequired,
-  view: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
   contentSize: state.content.size,
   elements: state.content.elements,
-  elementMenuStatus: state.elementMenu.status,
-  pagesMenuStatus: state.pagesMenu.status,
-  responsiveMenuStatus: state.responsiveMenu.status,
-  view: state.elementMenu.view,
+  elementsMenuStatus: state.menus.elementsMenu,
+  elementsMenuView: state.menus.elementsMenuView,
+  pagesMenuStatus: state.menus.pagesMenu,
+  responsiveMenuStatus: state.menus.responsiveMenu,
 });
 
 const mapDispatchToProps = dispatch => ({
