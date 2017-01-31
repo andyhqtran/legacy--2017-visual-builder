@@ -2,6 +2,7 @@
  * External dependencies
  */
 import React, { Component, PropTypes } from 'react';
+import { Motion, presets, spring } from 'react-motion';
 import classNames from 'classnames';
 
 /**
@@ -17,15 +18,26 @@ class Content extends Component {
     const classes = classNames('content', this.props.className);
 
     return (
-      <main
-        className={classes}
-        role="main"
+      <Motion
+        defaultStyle={{
+          width: 100,
+        }}
         style={{
-          width: `${this.props.size}%`,
+          width: spring(this.props.size, presets.gentle),
         }}
       >
-        Main
-      </main>
+        {value =>
+          <main
+            className={classes}
+            role="main"
+            style={{
+              width: `${value.width}%`,
+            }}
+          >
+            Main
+          </main>
+        }
+      </Motion>
     );
   }
 }
