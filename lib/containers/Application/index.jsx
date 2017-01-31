@@ -22,6 +22,7 @@ const Application = props => (
       pagesMenu={{
         actions: {
           addPage: props.actions.addPage,
+          deletePage: props.actions.deletePage,
           toggleMenu: props.actions.togglePagesMenu,
         },
         state: {
@@ -69,7 +70,7 @@ const mapStateToProps = state => ({
   elements: state.content.elements,
   elementsMenuStatus: state.menus.elementsMenu,
   elementsMenuView: state.menus.elementsMenuView,
-  pages: state.pages.pages,
+  pages: state.pages,
   pagesMenuStatus: state.menus.pagesMenu,
   responsiveMenuStatus: state.menus.responsiveMenu,
 });

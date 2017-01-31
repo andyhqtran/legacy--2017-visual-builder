@@ -24,6 +24,7 @@ class Header extends Component {
         <div className="header__group">
           <PagesMenu
             addPage={this.props.pagesMenu.actions.addPage}
+            deletePage={this.props.pagesMenu.actions.deletePage}
             pages={this.props.pagesMenu.state.pages}
             toggleMenu={this.props.pagesMenu.actions.toggleMenu}
             status={this.props.pagesMenu.state.status}

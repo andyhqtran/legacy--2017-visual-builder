@@ -15,15 +15,19 @@ import Menu from '../Menu';
  * <PagesMenu />
  */
 class PagesMenu extends Component {
-  _getMenuItems() {
-    return [
-      [
-        {
-          title: 'Pages',
-          items: this.props.pages,
-        },
-      ],
-    ];
+  _renderMenuGroupItem(item, i) {
+    return (
+      <Button
+        className="menu__item"
+        key={`menu-group-key-${i}`}
+      >
+        <span>{item.name}</span>
+        <i
+          className="ion ion-close-circled"
+          onClick={() => this.props.deletePage(item.id)}
+        />
+      </Button>
+    );
   }
 
   render() {
@@ -40,10 +44,15 @@ class PagesMenu extends Component {
           <i className="ion ion-ios-albums" />
         </Button>
         <Menu
-          items={this._getMenuItems()}
           status={this.props.status}
           childrenLocation="bottom"
         >
+        <dl className="menu__group">
+          <dt className="menu__title">Pages</dt>
+          <dd className="menu__group-content">
+            {this.props.pages.map(this._renderMenuGroupItem, this)}
+          </dd>
+        </dl>
           <Button block onClick={() => this.props.addPage()}>Add Page</Button>
         </Menu>
       </div>

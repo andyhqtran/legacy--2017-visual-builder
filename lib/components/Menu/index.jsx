@@ -68,9 +68,11 @@ class Menu extends Component {
 Menu.defaultProps = {
   changeMenu: noop,
   children: undefined,
+  childrenLocation: undefined,
   className: undefined,
   items: undefined,
   status: false,
+  view: undefined,
 };
 
 Menu.propTypes = {
@@ -99,6 +101,7 @@ Menu.propTypes = {
     ),
   ),
   status: PropTypes.bool,
+  view: PropTypes.number,
 };
 
 export default Menu;
