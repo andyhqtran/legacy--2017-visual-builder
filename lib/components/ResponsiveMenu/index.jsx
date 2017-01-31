@@ -41,21 +41,24 @@ class ResponsiveMenu extends Component {
               <FormGroup>
                 <Button
                   onClick={() => (
-                    this.props.contentSize > 1 ? this.props.increaseContentSize() : noop
+                    this.props.contentSize < 100 ? this.props.increaseContentSize() : noop
                   )}
                 >
                   +
                 </Button>
                 <RangeSlider
-                  max={4}
+                  max={100}
                   min={1}
                   step={1}
+                  style={{
+                    direction: 'rtl',
+                  }}
                   value={this.props.contentSize}
                   onChange={this.props.changeContentSize}
                 />
                 <Button
                   onClick={() => (
-                    this.props.contentSize < 4 ? this.props.decreaseContentSize() : noop
+                    this.props.contentSize > 1 ? this.props.decreaseContentSize() : noop
                   )}
                 >
                   -
@@ -71,9 +74,30 @@ class ResponsiveMenu extends Component {
                   justifyContent: 'center',
                 }}
               >
-                <Button><span className="ion ion-monitor" /></Button>
-                <Button><span className="ion ion-ipad" /></Button>
-                <Button><span className="ion ion-iphone" /></Button>
+                <Button
+                  onClick={() => this.props.changeContentSize(100)}
+                  style={{
+                    background: this.props.contentSize > 50 ? '#F6F7FB' : false,
+                  }}
+                >
+                  <span className="ion ion-monitor" />
+                </Button>
+                <Button
+                  onClick={() => this.props.changeContentSize(50)}
+                  style={{
+                    background: this.props.contentSize <= 50 && this.props.contentSize > 25 ? '#F6F7FB' : false,
+                  }}
+                >
+                  <span className="ion ion-ipad" />
+                </Button>
+                <Button
+                  onClick={() => this.props.changeContentSize(25)}
+                  style={{
+                    background: this.props.contentSize <= 25 ? '#F6F7FB' : false,
+                  }}
+                >
+                  <span className="ion ion-iphone" />
+                </Button>
               </ButtonGroup>
             </dd>
           </dl>

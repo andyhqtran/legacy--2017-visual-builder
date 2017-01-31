@@ -20,7 +20,7 @@ class Header extends Component {
     const classes = classNames('header', this.props.className);
 
     return (
-      <header className={classes}>
+      <header className={classes} role="banner">
         <div className="header__group">
           <PagesMenu
             addPage={this.props.pagesMenu.actions.addPage}

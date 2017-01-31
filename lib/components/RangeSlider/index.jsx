@@ -36,6 +36,7 @@ class RangeSlider extends Component {
         max={this.props.max}
         min={this.props.min}
         step={this.props.step}
+        style={this.props.style}
         type="range"
         value={this.props.value}
       />

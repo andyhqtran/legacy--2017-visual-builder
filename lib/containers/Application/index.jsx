@@ -43,7 +43,7 @@ const Application = props => (
         },
       }}
     />
-    <Content elements={props.elements} />
+    <Content elements={props.elements} size={props.size} />
     <ElementMenu
       addElement={props.actions.addElements}
       changeMenu={props.actions.changeElementsMenu}
@@ -63,6 +63,7 @@ Application.propTypes = {
   pages: PropTypes.array.isRequired,
   pagesMenuStatus: PropTypes.bool.isRequired,
   responsiveMenuStatus: PropTypes.bool.isRequired,
+  size: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -73,6 +74,7 @@ const mapStateToProps = state => ({
   pages: state.pages,
   pagesMenuStatus: state.menus.pagesMenu,
   responsiveMenuStatus: state.menus.responsiveMenu,
+  size: state.content.size,
 });
 
 const mapDispatchToProps = dispatch => ({

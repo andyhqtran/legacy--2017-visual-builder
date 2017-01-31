@@ -7,6 +7,7 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
+import './style.scss';
 
 /**
  * <Content />
@@ -16,7 +17,13 @@ class Content extends Component {
     const classes = classNames('content', this.props.className);
 
     return (
-      <main className={classes} role="main">
+      <main
+        className={classes}
+        role="main"
+        style={{
+          width: `${this.props.size}%`,
+        }}
+      >
         Main
       </main>
     );

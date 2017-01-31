@@ -2,6 +2,7 @@
  * Internal dependencies
  */
 import React, { Component, PropTypes } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 import classNames from 'classnames';
 
 /**
@@ -15,6 +16,11 @@ import Menu from '../Menu';
  * <PagesMenu />
  */
 class PagesMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+
   _renderMenuGroupItem(item, i) {
     return (
       <Button
@@ -22,10 +28,23 @@ class PagesMenu extends Component {
         key={`menu-group-key-${i}`}
       >
         <span>{item.name}</span>
-        <i
-          className="ion ion-close-circled"
-          onClick={() => this.props.deletePage(item.id)}
-        />
+        <span>
+          <i
+            className="ion ion-edit"
+            onClick={() => this.props.deletePage(item.id)}
+            style={{
+              marginRight: 10,
+              fontSize: '0.75rem',
+            }}
+          />
+          <i
+            className="ion ion-close-circled"
+            onClick={() => this.props.deletePage(item.id)}
+            style={{
+              fontSize: '0.75rem',
+            }}
+          />
+        </span>
       </Button>
     );
   }
