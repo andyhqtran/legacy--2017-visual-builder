@@ -26,6 +26,7 @@ class PagesMenu extends Component {
       <Button
         className="menu__item"
         key={`menu-group-key-${i}`}
+        onClick={() => this.props.changePage(item.id)}
       >
         <span>{item.name}</span>
         <span>

@@ -22,6 +22,7 @@ const Application = props => (
       pagesMenu={{
         actions: {
           addPage: props.actions.addPage,
+          changePage: props.actions.changePage,
           deletePage: props.actions.deletePage,
           toggleMenu: props.actions.togglePagesMenu,
         },
@@ -43,7 +44,7 @@ const Application = props => (
         },
       }}
     />
-    <Content elements={props.elements} size={props.size} />
+    <Content elements={props.elements} currentPage={props.currentPage} size={props.size} />
     <ElementMenu
       addElement={props.actions.addElements}
       changeMenu={props.actions.changeElementsMenu}
@@ -68,10 +69,11 @@ Application.propTypes = {
 
 const mapStateToProps = state => ({
   contentSize: state.content.size,
+  currentPage: state.pages.currentPage,
   elements: state.content.elements,
   elementsMenuStatus: state.menus.elementsMenu,
   elementsMenuView: state.menus.elementsMenuView,
-  pages: state.pages,
+  pages: state.pages.pages,
   pagesMenuStatus: state.menus.pagesMenu,
   responsiveMenuStatus: state.menus.responsiveMenu,
   size: state.content.size,

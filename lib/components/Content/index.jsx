@@ -15,6 +15,7 @@ import './style.scss';
  */
 class Content extends Component {
   render() {
+    console.log(this.props.currentPage);
     const classes = classNames('content', this.props.className);
 
     return (
@@ -34,7 +35,7 @@ class Content extends Component {
               width: `${value.width}%`,
             }}
           >
-            Main
+            Page {this.props.currentPage}
           </main>
         }
       </Motion>
